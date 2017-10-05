@@ -1,0 +1,19 @@
+<project>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="dist/"/>
+        <jar destfile="dist/QLearning.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="be.vub.ai.acai.QLearning"/>
+            </manifest>
+        </jar>
+    </target>
+</project>
