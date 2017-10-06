@@ -5,7 +5,7 @@ public class IceWorld2 extends IceWorld {
 	public IceWorld2() {
 		super();
 	}
-	
+	//returns the probability for a (state, action, next_state) transition
 	public double transition_probability(State s1, Action a, State s2) {
 		int nextX = s1.x;
 		int nextY = s1.y;
@@ -52,6 +52,7 @@ public class IceWorld2 extends IceWorld {
 		return prob;
 	}
 	
+	//returns the reward for a (state, action, next_state) transition
 	public double get_reward(State s1, Action a, State s2) {
 		return IceWorld2.grid[s2.y][s2.x].reward;
 	}
