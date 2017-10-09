@@ -13,4 +13,5 @@ In order to produce nice plots, do:
 Then, execute gnuplot:
 
 	gnuplot
-	> plot "/tmp/out" using 12 with lines
+	> set datafile separator ","
+	> plot “file.csv” using 2 smooth bezier with lines title “Learning Curve”
