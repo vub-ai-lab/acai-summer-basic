@@ -48,5 +48,39 @@ class MatchingPennies(Game):
         elif self.noPlayers == 3:
             return self.play3(A)
 
+class Climbing(Game):
+    def __init__(self, noPlayers=2):
+        self.noPlayers = noPlayers
+        
+        self.payoff_matrix = [[11, -30, 0],
+                              [-30, 7, 6],
+                              [0, 0, 5]]
+
+    def actions(self):
+        return [0, 1, 2] # Action a, b, c
+
+    def play2(self, A): #A joint action (a1, a2)
+        rewards = []
+        a1, a2 = A
+        r = self.payoff_matrix[a1][a2]
+        return (r,r)
+
+    def play3(self, A): #A joint action (a1, a2, a3)
+        rewards = []
+        a1, a2, a3 = A
+        r12 = self.payoff_matrix[a1][a2]
+        r13 = self.payoff_matrix[a1][a3]
+        r23 = self.payoff_matrix[a2][a3]
+        return (0.5*(r12 + r13), #player 1
+                0.5*(r12 + r23), #player 2
+                0.5*(r13 + r23)) #plater 3
+
+    def play(self, A):
+        if self.noPlayers == 2:
+            return self.play2(A)
+        elif self.noPlayers == 3:
+            return self.play3(A)
+
+
 
 
