@@ -1,3 +1,7 @@
+# Extra information on possbile approaches you can implement:
+# https://ai.vub.ac.be/sites/default/files/RL%20in%20NFgames.pdf
+
+
 import random
 
 from mal import *
@@ -12,6 +16,10 @@ def argmax(l):
     """ Return the index of the maximum element of a list
     """
     return max(enumerate(l), key=lambda x:x[1])[0]
+
+# After implementing your learning algorithm in the vanilla environment
+# try to add additional noise for the agent payoffs
+# (such that the utility is a normal distribution)
 
 def main():
     env = MatchingPennies(NOAGENTS)
