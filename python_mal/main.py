@@ -15,9 +15,9 @@ def argmax(l):
 
 def main():
     env = MatchingPennies(NOAGENTS)
+    #env = Climbing(NOAGENTS)
+    
     average_cumulative_reward = [0.0 for _ in range(0,NOAGENTS)]
-
-    qtable= [[0., 0.] for _ in range(0,NOAGENTS)] #action0, action1 per agent
 
     # Loop over episodes
     for i in range(EPISODES):
